@@ -32,7 +32,8 @@ namespace DocumentApp.DAL
             }
         }
 
-        public override int SaveChanges()
+        public override Task<int> SaveChangesAsync(bool acceptAllChangesOnSuccess,
+            CancellationToken cancellationToken = new CancellationToken())
         {
             var entries = ChangeTracker.Entries().Where(s => s.State == EntityState.Added || s.State == EntityState.Modified);
 
@@ -42,7 +43,7 @@ namespace DocumentApp.DAL
                 if (entry.State == EntityState.Added)
                     entry.Property("CreatedDate").CurrentValue = DateTime.Now;
             }
-            return base.SaveChanges();
+            return base.SaveChangesAsync(acceptAllChangesOnSuccess, cancellationToken);
         }
     }
 }
