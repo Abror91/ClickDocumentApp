@@ -1,11 +1,6 @@
 ﻿using DocumentApp.Models.Enums;
 using DocumentApp.Models.ViewModels;
-using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DocumentApp.Models.Entities
 {
